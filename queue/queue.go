@@ -11,13 +11,12 @@ import node "hackathon/node"
 // TODO Please implement this struct
 type Queue struct {
 	id int
-	size int
 }
 
 // Constructor of queue
 // TODO Please implement this constructor
-func Constructor(id int, size int) *Queue {
-	queue := Queue{ id, size }
+func Constructor(id int) *Queue {
+	queue := Queue{ id }
 
 	return &queue
 }
@@ -26,18 +25,6 @@ func Constructor(id int, size int) *Queue {
 // TODO Please implement this method
 func (q *Queue) ID() int {
 	return 0
-}
-
-// Size of the queue
-// TODO Please implement this method
-func (q *Queue) Size() int {
-	return 0
-}
-
-// SetSize is to set size of the queue
-// TODO Please implement this method
-func (q *Queue) SetSize(size int) {
-	return
 }
 
 // Add the node into queue
