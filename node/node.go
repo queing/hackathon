@@ -1,5 +1,5 @@
 // Node Library
-// Last Modified: Seonny, 2021.03.06
+// Last Modified: Seonny, 2021.03.08
 
 package node
 
@@ -17,4 +17,34 @@ func Constructor(id int) *Node {
 	node := Node{ id, nil, nil }
 
 	return &node
+}
+
+// ID of the Node
+// TODO Please implement this method
+func (n *Node) ID() int {
+	return n.id
+}
+
+// Prev of the Node
+// TODO Please implement this method
+func (n *Node) Prev() *Node {
+	return nil
+}
+
+// SetPrev is to set prev node of the node
+// TODO Please implement this method
+func (n *Node) SetPrev(node *Node) {
+	return;
+}
+
+// Next of the Node
+// TODO Please implement this method
+func (n *Node) Next() *Node {
+	return nil
+}
+
+// SetNext is to set next node of the node
+// TODO Please implement this method
+func (n *Node) SetNext(node *Node) {
+	return;
 }

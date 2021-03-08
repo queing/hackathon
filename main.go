@@ -5,10 +5,10 @@ import (
 	queue "hackathon/queue"
 )
 
+func main() {
+	a := queue.Constructor(1, 2)
+	b := node.Constructor(1)
 
-func main () {
-	a := queue.Constructor(1);
-	b := node.Constructor(1);
-
-	
+	a.Add(b)
+	a.Find(b.ID())
 }
