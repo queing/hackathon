@@ -22,7 +22,7 @@ func Constructor(id int) *Node {
 // ID of the Node
 // TODO Please implement this method
 func (n *Node) ID() int {
-	return n.id
+	return 0
 }
 
 // Prev of the Node

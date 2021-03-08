@@ -22,6 +22,12 @@ func Constructor(id int, size int) *Queue {
 	return &queue
 }
 
+// ID of the queue
+// TODO Please implement this method
+func (q *Queue) ID() int {
+	return 0
+}
+
 // Size of the queue
 // TODO Please implement this method
 func (q *Queue) Size() int {
