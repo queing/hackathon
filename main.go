@@ -4,23 +4,29 @@ import (
 	"fmt"
 	node "hackathon/node"
 	queue "hackathon/queue"
+	"log"
 	"math/rand"
 	"time"
 )
 
 func main() {
-	test()
+	testSynchronously()
 }
 
-func test() {
+func testSynchronously() {
 	Q := queue.Constructor(1)
 	
 	// Track 1: Add 10000 Nodes.
 	track1 := time.Now()
 
 	for i := 0; i < 10000; i = i + 1 {
-		N := node.Constructor(1)
-		Q.Add(N)
+		N := node.Constructor(i)
+		order := Q.Add(N)
+
+		if N.ID() != order {
+			msg := fmt.Sprintf("Add Error, expect order: %d, result order: %d", N.ID(), order);
+			log.Fatal(msg)
+		}
 	}
 
 	track1SpentTime := time.Since(track1)
@@ -31,7 +37,12 @@ func test() {
 
 	for i := 0; i < 500; i = i + 1 {
 		id := rand.Intn(10000) // 0 <= id < 10000
-		Q.Find(id)
+		N, order := Q.Find(id)
+
+		if N.ID() != id || id != order {
+			msg := fmt.Sprintf("Find Error, expect id: %d, result id: %d", id, N.ID());
+			log.Fatal(msg)
+		}
 	}
 
 	track2SpentTime := time.Since(track2)
@@ -40,7 +51,7 @@ func test() {
 	// Track 3: Peek a node
 	track3 := time.Now()
 
-		Q.Peek()
+	Q.Peek()
 
 	track3SpentTime := time.Since(track3)
 	fmt.Printf("Track3 : %s\n", track3SpentTime)
