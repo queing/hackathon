@@ -16,7 +16,7 @@ type Queue struct {
 // Constructor of queue
 // TODO Please implement this constructor
 func Constructor(id int) *Queue {
-	queue := Queue{ id }
+	queue := Queue{id}
 
 	return &queue
 }

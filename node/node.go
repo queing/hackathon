@@ -6,7 +6,7 @@ package node
 // Node struct
 // TODO Please implement this struct
 type Node struct {
-	id int
+	id   int
 	prev *Node
 	next *Node
 }
@@ -14,7 +14,7 @@ type Node struct {
 // Constructor of node
 // TODO Please implement this constructor
 func Constructor(id int) *Node {
-	node := Node{ id, nil, nil }
+	node := Node{id, nil, nil}
 
 	return &node
 }
@@ -34,7 +34,7 @@ func (n *Node) Prev() *Node {
 // SetPrev is to set prev node of the node
 // TODO Please implement this method
 func (n *Node) SetPrev(node *Node) {
-	return;
+	return
 }
 
 // Next of the Node
@@ -46,5 +46,5 @@ func (n *Node) Next() *Node {
 // SetNext is to set next node of the node
 // TODO Please implement this method
 func (n *Node) SetNext(node *Node) {
-	return;
+	return
 }

@@ -15,7 +15,7 @@ func main() {
 
 func testSynchronously() {
 	Q := queue.Constructor(1)
-	
+
 	// Track 1: Add 10000 Nodes.
 	track1 := time.Now()
 
@@ -24,7 +24,7 @@ func testSynchronously() {
 		order := Q.Add(N)
 
 		if N.ID() != order {
-			msg := fmt.Sprintf("Add Error, expect order: %d, result order: %d", N.ID(), order);
+			msg := fmt.Sprintf("Add Error, expect order: %d, result order: %d", N.ID(), order)
 			log.Fatal(msg)
 		}
 	}
@@ -40,7 +40,7 @@ func testSynchronously() {
 		N, order := Q.Find(id)
 
 		if N.ID() != id || id != order {
-			msg := fmt.Sprintf("Find Error, expect id: %d, result id: %d", id, N.ID());
+			msg := fmt.Sprintf("Find Error, expect id: %d, result id: %d", id, N.ID())
 			log.Fatal(msg)
 		}
 	}
