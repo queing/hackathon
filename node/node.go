@@ -7,14 +7,14 @@ package node
 // TODO Please implement this struct
 type Node struct {
 	id   int
-	prev *Node
+	order int
 	next *Node
 }
 
 // Constructor of node
 // TODO Please implement this constructor
 func Constructor(id int) *Node {
-	node := Node{id, nil, nil}
+	node := Node{id, -1, nil}
 
 	return &node
 }
@@ -22,29 +22,30 @@ func Constructor(id int) *Node {
 // ID of the Node
 // TODO Please implement this method
 func (n *Node) ID() int {
-	return 0
+	return n.id
 }
 
-// Prev of the Node
+// Order of the Node
 // TODO Please implement this method
-func (n *Node) Prev() *Node {
-	return nil
+func (n *Node) Order() int {
+	return n.order
 }
 
-// SetPrev is to set prev node of the node
-// TODO Please implement this method
-func (n *Node) SetPrev(node *Node) {
+// SetOrder is to set order of the node
+func (n *Node) SetOrder(order int) {
+	n.order = order
 	return
 }
 
 // Next of the Node
 // TODO Please implement this method
 func (n *Node) Next() *Node {
-	return nil
+	return n.next
 }
 
 // SetNext is to set next node of the node
 // TODO Please implement this method
 func (n *Node) SetNext(node *Node) {
+	n.next = node
 	return
 }

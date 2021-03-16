@@ -19,9 +19,10 @@ func testSynchronously() {
 	// Track 1: Add 10000 Nodes.
 	track1 := time.Now()
 
-	for i := 0; i < 10000; i = i + 1 {
+	for i := 0; i < 100000; i = i + 1 {
 		N := node.Constructor(i)
 		order := Q.Add(N)
+		N.SetOrder(order)
 
 		if N.ID() != order {
 			msg := fmt.Sprintf("Add Error, expect order: %d, result order: %d", N.ID(), order)
