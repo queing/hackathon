@@ -11,6 +11,7 @@ import (
 
 func main() {
 	testSynchronously()
+	testAsynchronously()
 }
 
 func testSynchronously() {
@@ -38,9 +39,9 @@ func testSynchronously() {
 
 	for i := 0; i < 500; i = i + 1 {
 		id := rand.Intn(10000) // 0 <= id < 10000
-		N, order := Q.Find(id)
+		N := Q.Find(id)
 
-		if N.ID() != id || id != order {
+		if N.ID() != id {
 			msg := fmt.Sprintf("Find Error, expect id: %d, result id: %d", id, N.ID())
 			log.Fatal(msg)
 		}
@@ -66,5 +67,32 @@ func testSynchronously() {
 
 	track4SpentTime := time.Since(track4)
 	fmt.Printf("Track4 : %s\n", track4SpentTime)
+}
 
+func testAsynchronously() {
+	Q := queue.Constructor(1)
+
+	// Track 1: Add 10000 Nodes.
+	track1 := time.Now()
+	ch := make(chan int, 100000)
+
+	go func(ch chan<- int) {
+		for i := 0; i < 100000; i = i + 1 {
+				ch <- i
+		}
+
+		close(ch)
+	}(ch)
+
+	time.Sleep(1000)
+
+	for id := range ch {
+		N := node.Constructor(id)
+		order := Q.Add(N)
+		N.SetOrder(order)
+	}
+
+	track1SpentTime := time.Since(track1)
+	fmt.Printf("Track1 : %s\n", track1SpentTime)
+	fmt.Println(Q.Count())
 }

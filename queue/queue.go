@@ -70,19 +70,15 @@ func (q *Queue) Peek() *node.Node {
 
 // Find the node by id
 // TODO Please implement this method
-// * Return pointer of node and order
-func (q *Queue) Find(id int) (*node.Node, int) {
-	count := 0
-
-	for current := q.head; current != nil; current = current.Next() {
-		if current.ID() == id {
-			return current, count
+// * Return pointer of node
+func (q *Queue) Find(id int) *node.Node {
+	for node := q.head; node != nil; node = node.Next() {
+		if node.ID() == id {
+			return node
 		}
-
-		count = count + 1
 	}
 
-	return nil, 0
+	return nil
 }
 
 // Count of all nodes in queue
