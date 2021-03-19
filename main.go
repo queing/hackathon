@@ -12,7 +12,6 @@ import (
 
 func main() {
 	testSynchronously()
-	testAsynchronously()
 }
 
 func testSynchronously() {
@@ -85,8 +84,6 @@ func testAsynchronously() {
 		close(ch)
 	}(ch)
 
-	time.Sleep(1000)
-
 	for id := range ch {
 		N := node.Constructor(id)
 		order := Q.Add(N)
@@ -95,5 +92,4 @@ func testAsynchronously() {
 
 	track1SpentTime := time.Since(track1)
 	fmt.Printf("Track1 : %s\n", track1SpentTime)
-	fmt.Println(Q.Count())
 }
