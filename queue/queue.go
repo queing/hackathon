@@ -5,9 +5,7 @@
 
 package queue
 
-import (
-	node "hackathon/node"
-)
+import node "hackathon/node"
 
 // Queue struct
 // TODO Please implement this struct

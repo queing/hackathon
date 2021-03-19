@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	node "hackathon/node"
-	queue "hackathon/queue"
 	"log"
 	"math/rand"
 	"time"
+
+	node "hackathon/node"
+	queue "hackathon/queue"
 )
 
 func main() {
